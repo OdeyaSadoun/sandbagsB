@@ -1,4 +1,5 @@
 // Odeya Sadoun 212380406
+
 import java.util.Scanner;
 
 public class Main {
@@ -20,10 +21,24 @@ public class Main {
     public static void main(String[] args) {
         initializeValues();
         printBoard();
+        int minimumStepsToFirstPlayer = minSteps(xLocationByPlayer(PLAYER_1_NAME), xLocationByPlayer(PLAYER_1_NAME));
+        int minimumStepsToSecondPlayer = minSteps(xLocationByPlayer(PLAYER_2_NAME), xLocationByPlayer(PLAYER_2_NAME));
 
+        if (minimumStepsToSecondPlayer == minimumStepsToFirstPlayer) {
+            System.out.println("Chances are equal for both players");
+        } else if (minimumStepsToFirstPlayer < minimumStepsToSecondPlayer) {
+            System.out.println("A player has the better chance");
+        } else {
+            System.out.println("B player has the better chance");
+        }
+    }
+
+    private static int minSteps(int xLocationByPlayer, int xLocationByPlayer1) {
+        return 0;
     }
 
     private static void initializeValues() {
+
         Scanner input = new Scanner(System.in);
         System.out.println("WELCOME \n" + "enter A player X location");
         playerALocationX = input.nextInt();
@@ -65,26 +80,26 @@ public class Main {
         }
     }
 
-//    //Help function to know which player is and return his x location
-//    private static int xLocationByPlayer(String player) {
-//
-//        if (player == PLAYER_1_NAME) {
-//            return playerALocationX;
-//        }
-//
-//        return playerBLocationX;
-//    }
-//
-//    //Help function to know which player is and return his y location
-//
-//    private static int yLocationByPlayer(String player) {
-//
-//        if (player == PLAYER_1_NAME) {
-//            return playerALocationY;
-//        }
-//
-//        return playerBLocationY;
-//    }
+    //Help function to know which player is and return his x location
+    private static int xLocationByPlayer(String player) {
+
+        if (player == PLAYER_1_NAME) {
+            return playerALocationX;
+        }
+
+        return playerBLocationX;
+    }
+
+    //Help function to know which player is and return his y location
+
+    private static int yLocationByPlayer(String player) {
+
+        if (player == PLAYER_1_NAME) {
+            return playerALocationY;
+        }
+
+        return playerBLocationY;
+    }
 //
 //    private static void makeTurn(String player) {
 //        int move = getMoveDirection(player);

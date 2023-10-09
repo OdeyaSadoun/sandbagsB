@@ -6,9 +6,6 @@ public class Main {
     static final int BOARD_SIZE = 10;
     static final String PLAYER_1_NAME = "A";
     static final String PLAYER_2_NAME = "B";
-    private static final String ILLEGAL_STEP_ERROR = "you cant go outside the board";
-    private static final String INCORRECT_CHOOSE_OPTION_ERROR =
-            "invalid option, please enter a number between 1 and 4";
     public static int playerALocationX;
     public static int playerALocationY;
     public static int playerBLocationX;
@@ -16,7 +13,6 @@ public class Main {
     public static int winnersCarpetLocationX;
     public static int winnersCarpetLocationY;
     public static int winnersCarpetSideSize;
-    public static boolean finishGame = false;
 
     public static void main(String[] args) {
         initializeValues();

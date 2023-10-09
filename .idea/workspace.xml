@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="944f7f90-ebab-463c-8c9d-910869c25916" name="Changes" comment="fix">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="944f7f90-ebab-463c-8c9d-910869c25916" name="Changes" comment="add explain to equal distances situation">
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +44,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1696785184644</updated>
-      <workItem from="1696785185781" duration="9231000" />
+      <workItem from="1696785185781" duration="9274000" />
     </task>
     <task id="LOCAL-00001" summary="first commit-copy from the previous exercise">
       <created>1696802127002</created>
@@ -68,7 +67,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696865530421</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add explain to equal distances situation">
+      <created>1696866058179</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1696866058179</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -78,6 +84,7 @@
     <MESSAGE value="first commit-copy from the previous exercise" />
     <MESSAGE value="fix the main function. need to implement the function: minSteps" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="add explain to equal distances situation" />
+    <option name="LAST_COMMIT_MESSAGE" value="add explain to equal distances situation" />
   </component>
 </project>

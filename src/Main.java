@@ -21,8 +21,10 @@ public class Main {
     public static void main(String[] args) {
         initializeValues();
         printBoard();
-        int minimumStepsToFirstPlayer = minSteps(xLocationByPlayer(PLAYER_1_NAME), xLocationByPlayer(PLAYER_1_NAME));
-        int minimumStepsToSecondPlayer = minSteps(xLocationByPlayer(PLAYER_2_NAME), xLocationByPlayer(PLAYER_2_NAME));
+        int minimumStepsToFirstPlayer = minSteps(xLocationByPlayer(PLAYER_1_NAME), yLocationByPlayer(PLAYER_1_NAME));
+        System.out.println("A" + minimumStepsToFirstPlayer);
+        int minimumStepsToSecondPlayer = minSteps(xLocationByPlayer(PLAYER_2_NAME), yLocationByPlayer(PLAYER_2_NAME));
+        System.out.println("B" + minimumStepsToSecondPlayer);
 
         if (minimumStepsToSecondPlayer == minimumStepsToFirstPlayer) {
             System.out.println("Chances are equal for both players");
@@ -33,12 +35,36 @@ public class Main {
         }
     }
 
-    private static int minSteps(int xLocationByPlayer, int xLocationByPlayer1) {
-        return 0;
+    // A function for find the minimum distance between 2 points when the steps are only by X and Y axes
+    public static int manhattanDistance(int locationX1, int locationY1, int locationX2, int locationY2) {
+        int distance = Math.abs(locationX1 - locationX2) + Math.abs(locationY1 - locationY2);
+
+        return distance;
     }
 
-    private static void initializeValues() {
+    private static int minSteps(int xLocationByPlayer, int xLocationByPlayer1) {
+        // The minimum value need to be some distance between all the winners carpet,
+        // for the initial value the distance to the left corner of this carpet
+        int minimum = manhattanDistance(xLocationByPlayer, xLocationByPlayer1, winnersCarpetLocationX, winnersCarpetLocationY);
+        int distanceBetweenTwoPoints;
 
+        for (int row = winnersCarpetLocationX; row < winnersCarpetLocationX + winnersCarpetSideSize; row++) {
+
+            for (int column = winnersCarpetLocationY; column < winnersCarpetLocationY + winnersCarpetSideSize; column++) {
+
+                distanceBetweenTwoPoints = manhattanDistance(xLocationByPlayer, xLocationByPlayer1, row, column);
+
+                if (distanceBetweenTwoPoints < minimum) {
+                    minimum = distanceBetweenTwoPoints;
+                }
+            }
+        }
+
+        return minimum;
+    }
+
+
+    private static void initializeValues() {
         Scanner input = new Scanner(System.in);
         System.out.println("WELCOME \n" + "enter A player X location");
         playerALocationX = input.nextInt();
@@ -82,7 +108,6 @@ public class Main {
 
     //Help function to know which player is and return his x location
     private static int xLocationByPlayer(String player) {
-
         if (player == PLAYER_1_NAME) {
             return playerALocationX;
         }
@@ -91,110 +116,11 @@ public class Main {
     }
 
     //Help function to know which player is and return his y location
-
     private static int yLocationByPlayer(String player) {
-
         if (player == PLAYER_1_NAME) {
             return playerALocationY;
         }
 
         return playerBLocationY;
     }
-//
-//    private static void makeTurn(String player) {
-//        int move = getMoveDirection(player);
-//        boolean legalStep = isMovingTowardsBorder(xLocationByPlayer(player), yLocationByPlayer(player), move);
-//
-//        if (legalStep) {
-//            movePlayer(player, move);
-//            boolean isWinner = didPlayerWin(xLocationByPlayer(player), yLocationByPlayer(player));
-//            printBoard();
-//
-//            if (isWinner) {
-//                finishGame = true;
-//                System.out.println("player " + player + " won this round!");
-//            }
-//        } else {
-//            System.out.println(ILLEGAL_STEP_ERROR);
-//        }
-//    }
-//
-//    private static int getMoveDirection(String player) {
-//        System.out.println("player " + player + "'s move \n" + "1-up 2-down 3-right 4-left");
-//        Scanner input = new Scanner(System.in);
-//        int choose = input.nextInt();
-//
-//        return choose;
-//    }
-//
-//    private static boolean isMovingTowardsBorder(int playerXloc, int playerYloc, int playerMovement) {
-//        final int UP = 1;
-//        final int DOWN = 2;
-//        final int RIGHT = 3;
-//        final int LEFT = 4;
-//
-//        switch (playerMovement) {
-//            case UP:
-//                if (playerXloc - 1 < 1) {
-//                    return false;
-//                }
-//                break;
-//            case DOWN:
-//                if (playerXloc + 1 > BOARD_SIZE) {
-//                    return false;
-//                }
-//                break;
-//            case RIGHT:
-//                if (playerYloc + 1 > BOARD_SIZE) {
-//                    return false;
-//                }
-//                break;
-//            case LEFT:
-//                if (playerYloc - 1 < 1) {
-//                    return false;
-//                }
-//                break;
-//            default:
-//                System.out.println(INCORRECT_CHOOSE_OPTION_ERROR);
-//                break;
-//        }
-//
-//        return true;
-//    }
-//
-//    private static void movePlayer(String player, int playerMovement) {
-//        final int UP = 1;
-//        final int DOWN = 2;
-//        final int RIGHT = 3;
-//        final int LEFT = 4;
-//
-//        if (player == PLAYER_1_NAME) {
-//            switch (playerMovement) {
-//                case UP -> playerALocationX--;
-//                case DOWN -> playerALocationX++;
-//                case RIGHT -> playerALocationY++;
-//                case LEFT -> playerALocationY--;
-//            }
-//        } else {
-//            switch (playerMovement) {
-//                case UP -> playerBLocationX--;
-//                case DOWN -> playerBLocationX++;
-//                case RIGHT -> playerBLocationY++;
-//                case LEFT -> playerBLocationY--;
-//            }
-//        }
-//    }
-//
-//    private static boolean didPlayerWin(int playerXloc, int playerYloc) {
-//
-//        if (playerXloc >= winnersCarpetLocationX
-//                && playerXloc < winnersCarpetLocationX + winnersCarpetSideSize
-//                && playerYloc >= winnersCarpetLocationY
-//                && playerYloc < winnersCarpetLocationY + winnersCarpetSideSize) {
-//
-//            return true;
-//        }
-//
-//        return false;
-//    }
 }

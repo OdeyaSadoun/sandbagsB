@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="944f7f90-ebab-463c-8c9d-910869c25916" name="Changes" comment="first commit-copy from the previous exercise">
+    <list default="true" id="944f7f90-ebab-463c-8c9d-910869c25916" name="Changes" comment="fix the main function. need to implement the function: minSteps">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -45,7 +45,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1696785184644</updated>
-      <workItem from="1696785185781" duration="1353000" />
+      <workItem from="1696785185781" duration="8708000" />
     </task>
     <task id="LOCAL-00001" summary="first commit-copy from the previous exercise">
       <created>1696802127002</created>
@@ -54,7 +54,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696802127003</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix the main function. need to implement the function: minSteps">
+      <created>1696802699694</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696802699694</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -62,6 +69,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit-copy from the previous exercise" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit-copy from the previous exercise" />
+    <MESSAGE value="fix the main function. need to implement the function: minSteps" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix the main function. need to implement the function: minSteps" />
   </component>
 </project>

@@ -26,6 +26,23 @@ public class Main {
         int minimumStepsToSecondPlayer = minSteps(xLocationByPlayer(PLAYER_2_NAME), yLocationByPlayer(PLAYER_2_NAME));
         System.out.println("B" + minimumStepsToSecondPlayer);
 
+        /**
+         * If we consider the situation that in any case A will start playing first -
+         * he has a gap relative to B by a step difference of 1.
+         * Therefore - everywhere in the following conditions,
+         * instead of the minimum value of player A, we will subtract 1 from the minimum value.
+         * In this way, it will meet the conditions of example number 2 on the test cases page,
+         * where A and B are exactly the same distance from the carpet, each has 3 steps to reach,
+         * but in the output it is written that A wins,
+         * and the only option for the fact that the result is not "the distances are equal"
+         * which gives precedence to A and he Apparently the first will win not because he has fewer steps,
+         * but because he starts the journey of steps before B.
+         * ------------------------------------------------------
+         * But, if the process is as I understood it,
+         * that if and above the number of steps is the same, the code should be left as it is,
+         * and checking the above example - the value: "equals" will be printed.
+         * */
+
         if (minimumStepsToSecondPlayer == minimumStepsToFirstPlayer) {
             System.out.println("Chances are equal for both players");
         } else if (minimumStepsToFirstPlayer < minimumStepsToSecondPlayer) {
@@ -33,6 +50,15 @@ public class Main {
         } else {
             System.out.println("B player has the better chance");
         }
+
+        // For the situation that I wrote before:
+//        if (minimumStepsToSecondPlayer == minimumStepsToFirstPlayer - 1) {
+//            System.out.println("Chances are equal for both players");
+//        } else if (minimumStepsToFirstPlayer - 1 < minimumStepsToSecondPlayer) {
+//            System.out.println("A player has the better chance");
+//        } else {
+//            System.out.println("B player has the better chance");
+//        }
     }
 
     // A function for find the minimum distance between 2 points when the steps are only by X and Y axes

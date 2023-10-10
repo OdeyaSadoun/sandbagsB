@@ -18,37 +18,34 @@ public class Main {
         initializeValues();
         printBoard();
         int minimumStepsToFirstPlayer = minSteps(xLocationByPlayer(PLAYER_1_NAME), yLocationByPlayer(PLAYER_1_NAME));
-        System.out.println("A" + minimumStepsToFirstPlayer);
         int minimumStepsToSecondPlayer = minSteps(xLocationByPlayer(PLAYER_2_NAME), yLocationByPlayer(PLAYER_2_NAME));
-        System.out.println("B" + minimumStepsToSecondPlayer);
 
         if (minimumStepsToSecondPlayer == minimumStepsToFirstPlayer) {
             System.out.println("Chances are equal for both players");
         } else if (minimumStepsToFirstPlayer < minimumStepsToSecondPlayer) {
-            System.out.println("A player has the better chance");
+            System.out.println(PLAYER_1_NAME + " player has the better chance");
         } else {
-            System.out.println("B player has the better chance");
+            System.out.println(PLAYER_2_NAME + " player has the better chance");
         }
     }
 
     // A function for find the minimum distance between 2 points when the steps are only by X and Y axes
     public static int manhattanDistance(int locationX1, int locationY1, int locationX2, int locationY2) {
-        int distance = Math.abs(locationX1 - locationX2) + Math.abs(locationY1 - locationY2);
 
-        return distance;
+        return Math.abs(locationX1 - locationX2) + Math.abs(locationY1 - locationY2);
     }
 
-    private static int minSteps(int xLocationByPlayer, int xLocationByPlayer1) {
+    private static int minSteps(int xLocationByPlayer, int yLocationByPlayer) {
         // The minimum value need to be some distance between all the winners carpet,
         // for the initial value the distance to the left corner of this carpet
-        int minimum = manhattanDistance(xLocationByPlayer, xLocationByPlayer1, winnersCarpetLocationX, winnersCarpetLocationY);
+        int minimum = manhattanDistance(xLocationByPlayer, yLocationByPlayer, winnersCarpetLocationX, winnersCarpetLocationY);
         int distanceBetweenTwoPoints;
 
         for (int row = winnersCarpetLocationX; row < winnersCarpetLocationX + winnersCarpetSideSize; row++) {
 
             for (int column = winnersCarpetLocationY; column < winnersCarpetLocationY + winnersCarpetSideSize; column++) {
 
-                distanceBetweenTwoPoints = manhattanDistance(xLocationByPlayer, xLocationByPlayer1, row, column);
+                distanceBetweenTwoPoints = manhattanDistance(xLocationByPlayer, yLocationByPlayer, row, column);
 
                 if (distanceBetweenTwoPoints < minimum) {
                     minimum = distanceBetweenTwoPoints;
@@ -62,13 +59,13 @@ public class Main {
 
     private static void initializeValues() {
         Scanner input = new Scanner(System.in);
-        System.out.println("WELCOME \n" + "enter A player X location");
+        System.out.println("WELCOME \n" + "enter " + PLAYER_1_NAME + " player X location");
         playerALocationX = input.nextInt();
-        System.out.println("enter A player Y location");
+        System.out.println("enter " + PLAYER_1_NAME + " player Y location");
         playerALocationY = input.nextInt();
-        System.out.println("enter B player X location");
+        System.out.println("enter " + PLAYER_2_NAME + " player X location");
         playerBLocationX = input.nextInt();
-        System.out.println("enter B player Y location");
+        System.out.println("enter " + PLAYER_2_NAME + " player Y location");
         playerBLocationY = input.nextInt();
         System.out.println("enter WINNERS CARPET top left location");
         winnersCarpetLocationX = input.nextInt();
@@ -104,7 +101,7 @@ public class Main {
 
     //Help function to know which player is and return his x location
     private static int xLocationByPlayer(String player) {
-        if (player == PLAYER_1_NAME) {
+        if (player.equals(PLAYER_1_NAME)) {
             return playerALocationX;
         }
 
@@ -113,7 +110,7 @@ public class Main {
 
     //Help function to know which player is and return his y location
     private static int yLocationByPlayer(String player) {
-        if (player == PLAYER_1_NAME) {
+        if (player.equals(PLAYER_1_NAME)) {
             return playerALocationY;
         }
 
